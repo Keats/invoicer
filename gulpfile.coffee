@@ -167,7 +167,7 @@ gulp.task 'default', ['build'], ->
 
 # Build the project
 gulp.task 'build', ->
-  runSequence 'clean', ['style', 'assets', 'lint-typescript', 'typescript', 'templates', 'libs'], 'index'
+  runSequence 'clean', ['style', 'lint-typescript', 'typescript', 'templates', 'libs'], 'index'
 
 # Setup watchers for the different files
 gulp.task 'watch', ->
