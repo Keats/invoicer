@@ -74,33 +74,20 @@ gulp.task 'style', ->
   .pipe(sass({style: 'nested'}))
   .pipe(gulp.dest(destinations.css))
 
-# Checks that the coffeescript code passes linting
-gulp.task 'lint', ->
-  gulp.src(sources.coffee)
-  .pipe($.coffeelint())
-  .pipe($.coffeelint.reporter())
-
-# Compiles to coffeescript.
-# If we are in dist env, concat all the files and uglify them
-gulp.task 'scripts', ->
-  stream = gulp.src(sources.app)
-  .pipe($.coffee({bare: true}).on('error', gutil.log))
-
-  # On dist env, we only want one uglified file for the whole app
-  if isDist
-    stream = stream.pipe($.concat('app.js')).pipe($.uglify())
-
-  stream.pipe(gulp.dest(destinations.js))
-
 gulp.task 'lint-typescript', ->
   gulp.src(sources.app)
   .pipe($.tslint())
   .pipe($.tslint.report('prose', {emitError: false}))
 
 gulp.task 'typescript', ->
-  gulp.src(sources.app)
+  stream = gulp.src(sources.app)
   .pipe($.tsc({ emitError: false }))
-  .pipe(gulp.dest(destinations.js))
+
+  # On dist env, we only want one uglified file for the whole app
+  if isDist
+    stream = stream.pipe($.concat('app.js')).pipe($.uglify())
+
+  stream.pipe(gulp.dest(destinations.js))
 
 # Transforms the templates to js using html2js to a single file and minify it
 gulp.task 'templates', ->
