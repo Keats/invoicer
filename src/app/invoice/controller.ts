@@ -73,7 +73,8 @@ Account number: 12345678\nSort code: 12-34-56'
     reader.onload = (e) => {
       // setting to this.invoice.companyInfo.logo doesn't change the src
       // forcing it via plain html
-      document.getElementById('logo').src = e.target.result;
+      var logoTag = <HTMLImageElement> document.getElementById('logo');
+      logoTag.src = e.target.result;
     };
     reader.readAsDataURL(element.files[0]);
   }
