@@ -9,15 +9,15 @@ class InvoiceController implements invoice.IController {
   ];
 
   invoice = {
-    'number': 'ABC123',
+    'number': 'ABC001',
     'companyInfo': {
-      'name': 'ACME Corp',
-      'companyNumber': '12423',
-      'website': 'www.acme.world',
-      'address1': '23 Infinite Street',
-      'address2': 'Walala, Moon',
-      'email': 'world@domination.com',
-      'vatRegistrationNumber': '23-23-24',
+      'name': 'We Are Wizards Ltd',
+      'companyNumber': 'Company No.: 08861162',
+      'website': 'www.vincent.is',
+      'address1': 'Bristol & West House, Post Office Road',
+      'address2': 'Bournemouth, Dorset, UK, BH1 1BL',
+      'email': 'prouillet.vincent@gmail.com',
+      'vatRegistrationNumber': 'VAT: 23-23-23',
       'logo': 'http://placehold.it/200x200'
     },
     'clientInfo': {
@@ -32,7 +32,8 @@ class InvoiceController implements invoice.IController {
     'items': [
       {'description': 'Something invoiceable', 'price': 75, quantity:3}
     ],
-    'paymentTerms': 'BLABLA'
+    'paymentTerms': 'Money transfer to the account below.\nWe Are Wizards Ltd\n\
+Account number: 12345678\nSort code: 12-34-56'
    };
 
   showLogo = true;
