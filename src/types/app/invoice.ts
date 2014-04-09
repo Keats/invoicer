@@ -1,4 +1,5 @@
 /// <reference path="../angular.d.ts"/>
+/// <reference path="./core.ts"/>
 
 
 module invoice {
@@ -43,6 +44,9 @@ module invoice {
     invoice: invoice.IInvoice;
     showLogo: boolean;
 
+    _loadFromLocalStorage(key: string);
+    _saveInLocalStorage(key: string);
+
     calculateSubtotal();
     calculateTaxes();
     removeItem(item: IItem);
@@ -50,5 +54,4 @@ module invoice {
     toggleShowLogo();
     changeLogo(element: any);
   }
-
 }

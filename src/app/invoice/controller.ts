@@ -40,6 +40,27 @@ Account number: 12345678\nSort code: 12-34-56'
 
   constructor(private $scope: core.IScope) {
     $scope.vm = this;
+
+    this._loadFromLocalStorage('companyInfo');
+    this._loadFromLocalStorage('paymentTerms');
+
+    this.$scope.$watch('vm.invoice.companyInfo', () => {
+      this._saveInLocalStorage('companyInfo');
+    }, true);
+
+     this.$scope.$watch('vm.invoice.paymentTerms', () => {
+      this._saveInLocalStorage('paymentTerms');
+    });
+  }
+
+  _loadFromLocalStorage(key: string) {
+    if (localStorage[key] !== undefined) {
+      this.invoice[key] = JSON.parse(localStorage[key]);
+    }
+  }
+
+  _saveInLocalStorage(key: string) {
+    localStorage[key] = JSON.stringify(this.invoice[key])
   }
 
   calculateSubtotal() {
