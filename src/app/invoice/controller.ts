@@ -92,10 +92,10 @@ Account number: 12345678\nSort code: 12-34-56'
   changeLogo(element: any) {
     var reader = new FileReader();
     reader.onload = (e) => {
-      // setting to this.invoice.companyInfo.logo doesn't change the src
-      // forcing it via plain html
       var logoTag = <HTMLImageElement> document.getElementById('logo');
       logoTag.src = e.target.result;
+      this.invoice.companyInfo.logo = logoTag.src;
+      this.$scope.$apply();
     };
     reader.readAsDataURL(element.files[0]);
   }
