@@ -4,3 +4,9 @@
   margin-top: 50px;
   padding: 5px;
 }
+
+@media print {
+  .hide-on-print {
+    display: none !important;
+  }
+}

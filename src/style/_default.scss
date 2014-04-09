@@ -4,6 +4,19 @@ $orange: #de4522;
 .container {
   font-size: .9em;
 
+  .options {
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .options input {
+    display: inline-block;
+    width: 10%;
+    margin-left: 20px;
+    border: 1px solid black;
+  }
+
   input, textarea {
     box-shadow: none;
     border: none;
@@ -99,10 +112,16 @@ $orange: #de4522;
       td input {
         text-align: center;
       }
+
+      td:first-of-type input {
+        width: 90%;
+        display: inline-block;
+      }
     }
 
     .delete-item {
-      width: 5%;
+      display: inline-block;
+      margin-right: 20px;
       cursor: pointer;
       color: red;
     }
@@ -142,6 +161,4 @@ $orange: #de4522;
       font-size: 1.1em;
     }
   }
-
-
 }

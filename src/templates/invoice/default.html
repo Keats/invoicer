@@ -1,3 +1,16 @@
+<div class="options hide-on-print">
+  <h3>Options</h3>
+  <label>
+    Currency
+    <input type="text" ng-model="vm.invoice.currency" />
+  </label>
+
+  <label>
+    Tax %
+    <input type="text" ng-model="vm.invoice.tax" />
+  </label>
+</div>
+
 <div class="logo">
   <img src="http://placehold.it/200x200" alt=""/>
 </div>
@@ -38,7 +51,6 @@
 <table>
   <thead>
     <tr>
-      <th></th>
       <th class="desc-cell">Description</th>
       <th>Qty</th>
       <th>Price</th>
@@ -48,29 +60,32 @@
 
   <tbody>
     <tr ng-repeat="item in vm.invoice.items">
-      <td class="delete-item" ng-click="vm.removeItem(item)">✖</td>
-      <td class="desc-cell"><input type="text" ng-model="item.description" /></td>
+      <td class="desc-cell">
+        <span class="hide-on-print delete-item" ng-click="vm.removeItem(item)">✖</span>
+        <input type="text" ng-model="item.description" />
+      </td>
       <td><input type="text" ng-model="item.quantity" /></td>
       <td><input type="text" ng-model="item.price" /></td>
-      <td>{{ item.quantity * item.price | currency }}</td>
+      <td>{{ item.quantity * item.price | currency:vm.invoice.currency }}</td>
     </tr>
-    <tr>
-      <td colspan="5" ng-click="vm.addItem()"><button>Add</button></td>
+
+    <tr class="hide-on-print">
+      <td colspan="4" ng-click="vm.addItem()"><button>Add</button></td>
     </tr>
 
     <tr class="totals">
-      <td colspan="4">Subtotal</td>
-      <td>{{ vm.calculateSubtotal() | currency }}</td>
+      <td colspan="3">Subtotal</td>
+      <td>{{ vm.calculateSubtotal() | currency:vm.invoice.currency }}</td>
     </tr>
 
     <tr class="totals">
-      <td colspan="4">Tax ({{ vm.invoice.tax }}%)</td>
-      <td>{{ vm.calculateTaxes() | currency }}</td>
+      <td colspan="3">Tax ({{ vm.invoice.tax }}%)</td>
+      <td>{{ vm.calculateTaxes() | currency:vm.invoice.currency }}</td>
     </tr>
 
     <tr class="totals">
-      <td colspan="4">Total</td>
-      <td class="grand-total">{{ vm.calculateSubtotal() + vm.calculateTaxes() | currency }}</td>
+      <td colspan="3">Total</td>
+      <td class="grand-total">{{ vm.calculateSubtotal() + vm.calculateTaxes() | currency:vm.invoice.currency }}</td>
     </tr>
   </tbody>
 </table>
