@@ -1,5 +1,5 @@
 <div class="options hide-on-print">
-  <h3>Options</h3>
+  <h3>Options (not displayed on print)</h3>
   <label>
     Currency
     <input type="text" ng-model="vm.invoice.currency" />
@@ -22,6 +22,10 @@
     <span ng-if="vm.showLogo">Remove logo</span>
     <span ng-if="!vm.showLogo">Show logo</span>
   </button>
+
+  <br/>
+
+  <button onclick="window.print()">Print</button>
 </div>
 
 <div class="logo" ng-show="vm.showLogo">
@@ -78,7 +82,7 @@
         <input type="text" ng-model="item.description" />
       </td>
       <td><input type="text" ng-model="item.quantity" /></td>
-      <td><input type="text" ng-model="item.price" /></td>  
+      <td><input type="text" ng-model="item.price" /></td>
       <td>{{ item.quantity * item.price | currency:vm.invoice.currency }}</td>
     </tr>
 
