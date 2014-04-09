@@ -94,7 +94,7 @@
       <td>{{ vm.calculateSubtotal() | currency:vm.invoice.currency }}</td>
     </tr>
 
-    <tr class="totals">
+    <tr class="totals" ng-show="vm.invoice.tax > 0">
       <td colspan="3">Tax ({{ vm.invoice.tax }}%)</td>
       <td>{{ vm.calculateTaxes() | currency:vm.invoice.currency }}</td>
     </tr>
