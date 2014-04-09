@@ -4,3 +4,5 @@
 
 ## Goal
 Simple app to generate your invoices.
+Everything is in a controller, some part should obviously be directive or services but everything
+is kept in the controller as it's very short.
