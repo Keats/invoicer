@@ -1,6 +1,8 @@
 $border-colour: red;
 
 .container {
+  font-size: .9em;
+
    input {
     margin-bottom: 0;
     //box-shadow: none;
@@ -22,7 +24,6 @@ $border-colour: red;
 
   .company-info {
     width: 380px;
-    font-size: .9em;
   }
 
   .invoice-header {
@@ -67,15 +68,23 @@ $border-colour: red;
     th {
       text-align: center;
     }
+
     tr {
       text-align: center;
+
       td input {
         text-align: center;
       }
     }
 
+    .delete-item {
+      width: 5%;
+      cursor: pointer;
+      color: red;
+    }
+
     .desc-cell {
-      width: 70%;
+      width: 60%;
       text-align: left;
       input {
         text-align: left;
@@ -88,6 +97,15 @@ $border-colour: red;
         padding-right: 20px;
       }
     }
+  }
+
+  h2, textarea {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
   }
 
 }

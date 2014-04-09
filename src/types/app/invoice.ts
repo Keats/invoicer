@@ -11,7 +11,6 @@ module invoice {
     address1: string;
     address2: string;
     email: string;
-    additionalInfo: string;
     vatRegistrationNumber: string;
   }
 
@@ -21,7 +20,7 @@ module invoice {
     address2: string;
   }
 
-  export interface IInvoiceItem {
+  export interface IItem {
     description: string;
     quantity: number;
     price: number;
@@ -36,7 +35,7 @@ module invoice {
     date: string;
     dueDate: string;
     paymentTerms: string;
-    items: IInvoiceItem[];
+    items: IItem[];
   }
 
   export interface IController {
@@ -44,6 +43,8 @@ module invoice {
 
     calculateSubtotal();
     calculateTaxes();
+    removeItem(item: IItem);
+    addItem();
   }
 
 }

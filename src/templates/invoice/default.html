@@ -48,14 +48,14 @@
 
   <tbody>
     <tr ng-repeat="item in vm.invoice.items">
-      <td>DEL</td>
+      <td class="delete-item" ng-click="vm.removeItem(item)">✖</td>
       <td class="desc-cell"><input type="text" ng-model="item.description" /></td>
       <td><input type="text" ng-model="item.quantity" /></td>
       <td><input type="text" ng-model="item.price" /></td>
       <td>{{ item.quantity * item.price | currency }}</td>
     </tr>
     <tr>
-      <td colspan="5">ADD</td>
+      <td colspan="5" ng-click="vm.addItem()"><button>Add</button></td>
     </tr>
 
     <tr class="totals">
@@ -74,3 +74,6 @@
     </tr>
   </tbody>
 </table>
+
+<h2>Payment terms</h2>
+<textarea cols="30" rows="5" ng-model="vm.invoice.paymentTerms" spellcheck="false"></textarea>

@@ -17,7 +17,6 @@ class InvoiceController implements invoice.IController {
       'address1': '23 Infinite Street',
       'address2': 'Walala, Moon',
       'email': 'world@domination.com',
-      'additionalInfo': 'nothing comes to mind',
       'vatRegistrationNumber': '23-23-24'
     },
     'clientInfo': {
@@ -40,7 +39,7 @@ class InvoiceController implements invoice.IController {
   }
 
   calculateSubtotal() {
-    var subtotal : number = 0;
+    var subtotal = 0;
     this.invoice.items.forEach(function(item) {
       subtotal += item.quantity * item.price;
     });
@@ -49,6 +48,16 @@ class InvoiceController implements invoice.IController {
 
   calculateTaxes() {
     return (this.calculateSubtotal() * this.invoice.tax) /100;
+  }
+
+  removeItem(item: invoice.IItem) {
+    this.invoice.items.splice(this.invoice.items.indexOf(item), 1);
+  }
+
+  addItem() {
+    this.invoice.items.push(
+      {'description': 'New row', 'price': 0, 'quantity': 0}
+    )
   }
 
 }
