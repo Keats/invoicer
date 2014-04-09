@@ -45,3 +45,6 @@ $success-color: $light-green;
 
 // And import modules we want here
 @import "snowflake/bitters/typography";
+@import "snowflake/bitters/extends/button";
+@import "snowflake/bitters/forms";
+@import "snowflake/bitters/tables";

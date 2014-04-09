@@ -1,0 +1,61 @@
+<div class="logo">
+  <img src="http://placehold.it/200x200" alt=""/>
+</div>
+
+<div class="company-info">
+  <input type="text" ng-model="vm.invoice.companyInfo.name" />
+  <input type="text" ng-model="vm.invoice.companyInfo.website" />
+  <input type="text" ng-model="vm.invoice.companyInfo.address1" />
+  <input type="text" ng-model="vm.invoice.companyInfo.address2" />
+  <input type="text" ng-model="vm.invoice.companyInfo.email" />
+  <input type="text" ng-model="vm.invoice.companyInfo.companyNumber" />
+  <input type="text" ng-model="vm.invoice.companyInfo.vatRegistrationNumber" />
+</div>
+
+<div class="invoice-header">
+  <h1>Invoice <input type="text" ng-model="vm.invoice.number" /></h1>
+</div>
+
+<hr/>
+
+<div class="client-info">
+  <input type="text" ng-model="vm.invoice.clientInfo.name" />
+  <input type="text" ng-model="vm.invoice.clientInfo.address1" />
+  <input type="text" ng-model="vm.invoice.clientInfo.address2" />
+</div>
+
+<div class="dates">
+  <div class="date-box">
+    <p>Invoice date</p>
+    <input type="text" ng-model="vm.invoice.date" />
+  </div>
+  <div class="date-box">
+    <p>Due date</p>
+    <input type="text" ng-model="vm.invoice.dueDate" />
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th class="desc-cell">Description</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="item in vm.invoice.items">
+      <td>DEL</td>
+      <td class="desc-cell"><input type="text" ng-model="item.description" /></td>
+      <td><input type="text" ng-model="item.quantity" /></td>
+      <td><input type="text" ng-model="item.price" /></td>
+      <td>{{ item.quantity * item.price | currency }}</td>
+    </tr>
+    <tr>
+      <td colspan="5">ADD</td>
+    </tr>
+  </tbody>
+</table>

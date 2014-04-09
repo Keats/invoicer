@@ -3,15 +3,15 @@
 var modules = [
   'templates',
 
-  'ngBoilerplate.home',
+  'invoicer.invoice',
 
   'ui.router.state'
 ];
 
-var appModule = angular.module('ngBoilerplate', modules);
+var appModule = angular.module('invoicer', modules);
 
 var appConfig = function($urlRouterProvider: ng.ui.IUrlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 };
 
 appConfig.$inject = ['$urlRouterProvider'];

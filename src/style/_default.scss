@@ -1,0 +1,85 @@
+$border-colour: red;
+
+.container {
+   input {
+    margin-bottom: 0;
+    //box-shadow: none;
+    //border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .logo, .company-info, .invoice-header, .client-info, .dates {
+    display: inline-block;
+  }
+
+  .logo {
+    vertical-align: top;
+    margin-right: 20px;
+  }
+
+  .company-info {
+    width: 380px;
+    font-size: .9em;
+  }
+
+  .invoice-header {
+    width: 280px;
+  }
+
+  hr {
+    margin-bottom: 0;
+    border-bottom: 1px solid $border-colour;
+  }
+
+  .client-info {
+    width: 450px;
+  }
+
+  .dates {
+    width: 440px;
+    vertical-align: top;
+    text-align: right;
+
+    input {
+      text-align: center;
+    }
+
+    .date-box {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid $border-colour;
+      border-top: 0;
+    }
+
+    div:first-of-type {
+      border-right: 0;
+    }
+  }
+
+  table {
+    table-layout: auto;
+    th {
+      text-align: center;
+    }
+    tr {
+      text-align: center;
+      td input {
+        text-align: center;
+      }
+    }
+
+    .desc-cell {
+      width: 70%;
+      text-align: left;
+      input {
+        text-align: left;
+      }
+    }
+  }
+
+}
