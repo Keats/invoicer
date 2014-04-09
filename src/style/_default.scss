@@ -35,6 +35,7 @@ $border-colour: red;
   }
 
   .client-info {
+    margin-top: 30px;
     width: 450px;
   }
 
@@ -78,6 +79,13 @@ $border-colour: red;
       text-align: left;
       input {
         text-align: left;
+      }
+    }
+
+    .totals {
+      td:first-of-type {
+        text-align: right;
+        padding-right: 20px;
       }
     }
   }

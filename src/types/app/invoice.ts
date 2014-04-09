@@ -41,6 +41,9 @@ module invoice {
 
   export interface IController {
     invoice: invoice.IInvoice;
+
+    calculateSubtotal();
+    calculateTaxes();
   }
 
 }

@@ -38,6 +38,19 @@ class InvoiceController implements invoice.IController {
   constructor(private $scope: core.IScope) {
     $scope.vm = this;
   }
+
+  calculateSubtotal() {
+    var subtotal : number = 0;
+    this.invoice.items.forEach(function(item) {
+      subtotal += item.quantity * item.price;
+    });
+    return subtotal;
+  }
+
+  calculateTaxes() {
+    return (this.calculateSubtotal() * this.invoice.tax) /100;
+  }
+
 }
 
 invoiceController.controller('InvoiceController', InvoiceController);

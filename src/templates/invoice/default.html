@@ -57,5 +57,20 @@
     <tr>
       <td colspan="5">ADD</td>
     </tr>
+
+    <tr class="totals">
+      <td colspan="4">Subtotal</td>
+      <td>{{ vm.calculateSubtotal() | currency }}</td>
+    </tr>
+
+    <tr class="totals">
+      <td colspan="4">Tax ({{ vm.invoice.tax }}%)</td>
+      <td>{{ vm.calculateTaxes() | currency }}</td>
+    </tr>
+
+    <tr class="totals">
+      <td colspan="4">Total</td>
+      <td>{{ vm.calculateSubtotal() + vm.calculateTaxes() | currency }}</td>
+    </tr>
   </tbody>
 </table>
