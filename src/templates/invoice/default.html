@@ -9,10 +9,23 @@
     Tax %
     <input type="text" ng-model="vm.invoice.tax" />
   </label>
+
+  <br/>
+
+  <label>
+    Change logo
+    <input type="file" onchange="angular.element(this).scope().vm.changeLogo(this)" />
+  </label>
+
+  <br/>
+  <button ng-click="vm.toggleShowLogo()">
+    <span ng-if="vm.showLogo">Remove logo</span>
+    <span ng-if="!vm.showLogo">Show logo</span>
+  </button>
 </div>
 
-<div class="logo">
-  <img src="http://placehold.it/200x200" alt=""/>
+<div class="logo" ng-show="vm.showLogo">
+  <img ng-src="{{ vm.invoice.companyInfo.logo }}" id="logo" />
 </div>
 
 <div class="company-info">
@@ -25,7 +38,7 @@
   <input type="text" ng-model="vm.invoice.companyInfo.vatRegistrationNumber" />
 </div>
 
-<div class="invoice-header">
+<div class="invoice-header" ng-class="{true: '', false: 'header-no-logo'}[vm.showLogo]">
   <h1>Invoice <input type="text" ng-model="vm.invoice.number" /></h1>
 </div>
 
@@ -65,7 +78,7 @@
         <input type="text" ng-model="item.description" />
       </td>
       <td><input type="text" ng-model="item.quantity" /></td>
-      <td><input type="text" ng-model="item.price" /></td>
+      <td><input type="text" ng-model="item.price" /></td>  
       <td>{{ item.quantity * item.price | currency:vm.invoice.currency }}</td>
     </tr>
 

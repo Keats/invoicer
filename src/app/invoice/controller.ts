@@ -17,7 +17,8 @@ class InvoiceController implements invoice.IController {
       'address1': '23 Infinite Street',
       'address2': 'Walala, Moon',
       'email': 'world@domination.com',
-      'vatRegistrationNumber': '23-23-24'
+      'vatRegistrationNumber': '23-23-24',
+      'logo': 'http://placehold.it/200x200'
     },
     'clientInfo': {
       'name': 'Client Inc',
@@ -33,6 +34,8 @@ class InvoiceController implements invoice.IController {
     ],
     'paymentTerms': 'BLABLA'
    };
+
+  showLogo = true;
 
   constructor(private $scope: core.IScope) {
     $scope.vm = this;
@@ -58,6 +61,20 @@ class InvoiceController implements invoice.IController {
     this.invoice.items.push(
       {'description': 'New row', 'price': 0, 'quantity': 0}
     )
+  }
+
+  toggleShowLogo() {
+    this.showLogo = !this.showLogo;
+  }
+
+  changeLogo(element: any) {
+    var reader = new FileReader();
+    reader.onload = (e) => {
+      // setting to this.invoice.companyInfo.logo doesn't change the src
+      // forcing it via plain html
+      document.getElementById('logo').src = e.target.result;
+    };
+    reader.readAsDataURL(element.files[0]);
   }
 
 }

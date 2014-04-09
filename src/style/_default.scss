@@ -8,6 +8,10 @@ $orange: #de4522;
     border: 1px solid red;
     padding: 10px;
     margin-bottom: 20px;
+
+    input[type="file"] {
+      width: 30%;
+    }
   }
 
   .options input {
@@ -38,10 +42,15 @@ $orange: #de4522;
   .logo {
     vertical-align: top;
     margin-right: 20px;
+    max-width: 210px;
   }
 
   .company-info {
     width: 380px;
+  }
+
+  .header-no-logo {
+    float: right;
   }
 
   .invoice-header {

@@ -12,6 +12,7 @@ module invoice {
     address2: string;
     email: string;
     vatRegistrationNumber: string;
+    logo: string;
   }
 
   export interface IClientInfo {
@@ -40,11 +41,14 @@ module invoice {
 
   export interface IController {
     invoice: invoice.IInvoice;
+    showLogo: boolean;
 
     calculateSubtotal();
     calculateTaxes();
     removeItem(item: IItem);
     addItem();
+    toggleShowLogo();
+    changeLogo(element: any);
   }
 
 }
