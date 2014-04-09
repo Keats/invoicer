@@ -100,6 +100,13 @@ Account number: 12345678\nSort code: 12-34-56'
     reader.readAsDataURL(element.files[0]);
   }
 
+  clearLocalStorage() {
+    localStorage.removeItem('paymentTerms');
+    localStorage.removeItem('companyInfo');
+    // youhou refresh
+    location.reload();
+  }
+
 }
 
 invoiceController.controller('InvoiceController', InvoiceController);

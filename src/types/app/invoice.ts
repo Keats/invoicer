@@ -53,5 +53,6 @@ module invoice {
     addItem();
     toggleShowLogo();
     changeLogo(element: any);
+    clearLocalStorage();
   }
 }

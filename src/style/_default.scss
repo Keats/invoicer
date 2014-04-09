@@ -5,20 +5,22 @@ $orange: #de4522;
   font-size: .9em;
 
   .options {
+    label {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    input {
+      min-width: 50px;
+      border: 1px solid black;
+    }
+
+    .options-actions {
+      margin-top: 20px;
+    }
+
     border: 1px solid red;
     padding: 10px;
     margin-bottom: 20px;
-
-    input[type="file"] {
-      width: 30%;
-    }
-  }
-
-  .options input {
-    display: inline-block;
-    width: 10%;
-    margin-left: 20px;
-    border: 1px solid black;
   }
 
   input, textarea {
