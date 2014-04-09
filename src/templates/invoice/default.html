@@ -1,5 +1,4 @@
 <div class="options hide-on-print">
-  <h3>Options (not displayed on print)</h3>
   <label>
     Currency
     <input type="text" ng-model="vm.invoice.currency" />
@@ -10,21 +9,16 @@
     <input type="text" ng-model="vm.invoice.tax" />
   </label>
 
-  <br/>
-
   <label>
     Change logo
     <input type="file" onchange="angular.element(this).scope().vm.changeLogo(this)" />
   </label>
 
-  <br/>
   <button ng-click="vm.toggleShowLogo()">
     <span ng-if="vm.showLogo">Remove logo</span>
     <span ng-if="!vm.showLogo">Show logo</span>
   </button>
-
-  <br/>
-
+  &nbsp;&nbsp;&nbsp;
   <button onclick="window.print()">Print</button>
 </div>
 
