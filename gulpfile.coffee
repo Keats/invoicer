@@ -71,7 +71,7 @@ injectPaths = [
 # Switch to libsass when it supports sass 3.3
 gulp.task 'style', ->
   gulp.src(sources.sass)
-  .pipe(sass({style: 'nested'}))
+  .pipe(sass({style: 'compressed'}))
   .pipe(gulp.dest(destinations.css))
 
 gulp.task 'lint-typescript', ->
