@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - git submodule init
+  - git submodule update
+install:
+  - npm install -g bower gulp
+  - gem install sass
+  - npm install
+  - bower install
+  - gulp build --require coffee-script/register
+  - cd build && python -m SimpleHTTPServer 8001 > /dev/null 2>&1 & 
+script:
+  - gulp ci --require coffee-script/register
