@@ -70,10 +70,12 @@
 
     <tr class="totals">
       <td colspan="4">Total</td>
-      <td>{{ vm.calculateSubtotal() + vm.calculateTaxes() | currency }}</td>
+      <td class="grand-total">{{ vm.calculateSubtotal() + vm.calculateTaxes() | currency }}</td>
     </tr>
   </tbody>
 </table>
 
-<h2>Payment terms</h2>
-<textarea cols="30" rows="5" ng-model="vm.invoice.paymentTerms" spellcheck="false"></textarea>
+<div class="payment-terms">
+  <p>Payment terms</p>
+  <textarea cols="30" rows="5" ng-model="vm.invoice.paymentTerms" spellcheck="false"></textarea>
+</div>

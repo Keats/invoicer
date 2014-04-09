@@ -1,12 +1,17 @@
-$border-colour: red;
+$border-colour: #ddd;
+$orange: #de4522;
 
 .container {
   font-size: .9em;
 
-   input {
+  input, textarea {
+    box-shadow: none;
+    border: none;
     margin-bottom: 0;
-    //box-shadow: none;
-    //border: none;
+
+    &:hover {
+      border: 1px solid black;
+    }
 
     &:focus {
       box-shadow: none;
@@ -28,6 +33,12 @@ $border-colour: red;
 
   .invoice-header {
     width: 280px;
+    text-align: right;
+
+    input {
+      text-align: right;
+      padding: 0;
+    }
   }
 
   hr {
@@ -38,6 +49,9 @@ $border-colour: red;
   .client-info {
     margin-top: 30px;
     width: 450px;
+    input {
+      font-weight: bold;
+    }
   }
 
   .dates {
@@ -56,6 +70,13 @@ $border-colour: red;
       padding: 5px;
       border: 1px solid $border-colour;
       border-top: 0;
+
+      p {
+        color: $orange;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .9em;
+      }
     }
 
     div:first-of-type {
@@ -65,8 +86,11 @@ $border-colour: red;
 
   table {
     table-layout: auto;
+    margin-top: 50px;
+
     th {
       text-align: center;
+      color: $orange;
     }
 
     tr {
@@ -95,17 +119,29 @@ $border-colour: red;
       td:first-of-type {
         text-align: right;
         padding-right: 20px;
+        color: $orange;
+        font-weight: bold;
+      }
+
+      .grand-total {
+        font-weight: bold;
       }
     }
   }
 
-  h2, textarea {
-    text-align: center;
+  .payment-terms {
+    textarea {
+      resize: none;
+      font-size: .9em;
+    }
+
+    p {
+      color: $orange;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
   }
 
-  h2 {
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
 
 }
